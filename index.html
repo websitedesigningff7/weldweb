@@ -10,23 +10,34 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            position: relative;
+            background-image: url('img.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            color: white;
         }
+
         header {
-            background-color: #4CAF50;
             color: white;
             padding: 15px 0;
             text-align: center;
         }
+
         nav ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
             overflow: hidden;
-            background-color: #333;
         }
+
         nav li {
             float: left;
         }
+
         nav li a {
             display: block;
             color: white;
@@ -34,18 +45,21 @@
             padding: 14px 16px;
             text-decoration: none;
         }
+
         nav li a:hover {
             background-color: #111;
         }
+
         main {
             padding: 20px;
         }
+
         section {
             margin-bottom: 20px;
-            text-align: center; /* Center-align all content within each section */
+            text-align: center;
         }
+
         footer {
-            background-color: #333;
             color: white;
             text-align: center;
             padding: 10px 0;
@@ -53,14 +67,90 @@
             width: 100%;
             bottom: 0;
         }
+
         h1, h2, h3 {
             text-align: center;
+            color: white;
         }
+
         ul {
-            padding-left: 0; /* Remove left padding for unordered lists */
-            list-style-position: inside; /* Place bullet points inside the list item */
-            display: inline-block; /* Center-align the list itself */
-            text-align: left; /* Left-align the text within the list items */
+            padding-left: 0;
+            list-style-position: inside;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .photo-gallery img {
+            width: 100px;
+            height: auto;
+            margin: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: #f1f1f1;
+            font-size: 35px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -91,11 +181,16 @@
                 <li>Steel Stairs</li>
                 <li>Welding Joint Works</li>
             </ul>
+            <div class="photo-gallery">
+                <img src="wedimg1.jpg" alt="Service 1" onclick="openModal(this)">
+                <img src="wedimg2.jpg" alt="Service 2" onclick="openModal(this)">
+                <img src="wedimg4.jpg" alt="Service 3" onclick="openModal(this)">
+                <img src="wedimg5.jpg" alt="Service 4" onclick="openModal(this)">
+                <img src="wedimg6.jpg" alt="Service 5" onclick="openModal(this)">
+            </div>
         </section>
         <section id="about">
             <h2>About Us</h2>
-            <p>Here is the revised "About" page:</p>
-            <p>About Lavanya Engineering Works</p>
             <p>At Lavanya Engineering Works, we're passionate about delivering top-notch welding services that exceed our customers' expectations. With years of experience and a team of expert welders, we've established ourselves as a trusted partner for industries ranging from construction to manufacturing.</p>
             <h3>Our Mission</h3>
             <p>Our mission is to provide exceptional welding services that meet the highest standards of quality, safety, and reliability. We're committed to building long-term relationships with our customers, listening to their needs, and delivering tailored solutions that meet their unique requirements.</p>
@@ -108,21 +203,43 @@
             </ul>
             <h3>Our Team</h3>
             <p>Meet our team of experienced welders, each with their own unique expertise and qualifications:</p>
-            <p>- G. Mohan: Founder and CEO, with over 20 years of experience in welding and metal fabrication.</p>
+            <p>- G. Mohan: Founder and CEO, with over 30 years of experience in welding and metal fabrication.</p>
             <h3>Get in Touch</h3>
-            <p>Ready to learn more about our welding services or discuss your project requirements? Contact us today</p>
-            <p>We look forward to partnering with you!</p>
+            <p>Ready to learn more about our welding services or discuss your project requirements? Contact us today. We look forward to partnering with you!</p>
         </section>
         <section id="contact">
             <h2>Contact</h2>
             <p><a href="https://map.app.goo.gl/BZHr9kR5Kdm7, Anna Garden, Velechery, Chennai-42" target="_blank">Find us on Google Maps</a></p>
-            <p>Email: mohangmohan412@gmail.com</p>
-            <p>Phone: 9962882070</p>
-            <p>Address: 123, Anna Garden, Velechery, Chennai-42</p>
+            <div class="contact-info">
+                <p>Phone: <a href="tel:+919962882070">+91 9962882070</a></p>
+                <p>Email: <a href="mailto:info@lavanyaengineering.com">info@lavanyaengineering.com</a></p>
+            </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Lavanya Engineering Works. All rights reserved.</p>
+        <p>&copy; 2025 Lavanya Engineering Works</p>
     </footer>
+
+    <!-- Modal for the image lightbox -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Function to open the modal and display the clicked image
+        function openModal(img) {
+            var modal = document.getElementById("myModal");
+            var modalImage = document.getElementById("modalImage");
+            modal.style.display = "flex"; // Display the modal
+            modalImage.src = img.src; // Set the image source to the clicked image's source
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none"; // Hide the modal
+        }
+    </script>
 </body>
 </html>
